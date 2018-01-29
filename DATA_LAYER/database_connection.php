@@ -3,6 +3,7 @@
 /*
  * Note:  This is a core file,no chanage is recommented
  */
+require_once("/../config.php");
 class dboperation
 {
 	var $con,$res;

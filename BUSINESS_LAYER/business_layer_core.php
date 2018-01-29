@@ -3,7 +3,7 @@
 /*
  * Note:  This is a core file,no chanage is recommented
  */
-require_once("../DATA_LAYER/database_connection.php");
+require_once("/../DATA_LAYER/database_connection.php");
 
 class query_core extends dboperation {
 
