@@ -13,7 +13,7 @@ define('BASEURL', "http://localhost/sample-three-tier");
 
 
 //  Mail credentials
-define('GMAIL_USERNAME', "");
+define('GMAIL_USERNAME', "roslin.thomas@ipsrsolutions.com");
 define('GMAIL_PASSWORD', "");
 /* mail path  root_directory/HELPERS/GMAIL/index.php
  * Parameters:  mail_to|mail_subject|mail_content
