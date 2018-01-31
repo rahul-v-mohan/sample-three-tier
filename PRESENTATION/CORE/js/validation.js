@@ -4,13 +4,46 @@ jQuery(document).ready(function ($) {
      */
     $("#log_in_form").validate({
         rules: {
-            username: {
+            email: {
                 required: true,
+                customemail: true,
             },
             password: {
                 required: true,
             },
         },
+    });
+    $("#user_registration").validate({
+        rules: {
+            email: {
+                required: true,
+                customemail: true,
+            },
+            name: {
+                required: true,
+                letterswithbasicpunc: true,
+            },
+            mobile: {
+                required: true,
+                digits: true,
+                minlength: 10,
+                maxlength: 10,
+            },
+            gender: {
+                required: true,
+            },
+        },
+                errorPlacement: function(error, element) 
+        {
+            if ( element.is(":radio") ) 
+            {
+                error.appendTo( element.parents('.options') );
+            }
+            else 
+            { // This is the default behavior 
+                error.insertAfter( element );
+            }
+         }
     });
     //////////////////////////////////////////////
     /*
@@ -35,7 +68,7 @@ jQuery(document).ready(function ($) {
      */
     $("#forgetpassword_form").validate({
         rules: {
-            username: {
+            email: {
                 required: true,
                 customemail: true,
             },
