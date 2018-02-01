@@ -57,5 +57,42 @@ $page_title = 'Creation Account'
                 </div>
             </div>
         </div>
+        <!--Table-->
+        <div class="row">
+                        <div class="col-md-12">
+                            <div class="card strpied-tabled-with-hover">
+                                <div class="card-header ">
+                                    <h4 class="card-title">User Details</h4>
+<!--                                    <p class="card-category">Manage users here</p>-->
+                                </div>
+                                <div class="card-body table-full-width table-responsive">
+                                    <table class="table table-hover table-striped">
+                                        <thead>
+                                            <th>Name</th>
+                                            <th>Mobile</th>
+                                            <th>Email</th>
+                                            <th>Gender</th>
+                                            <th>Status</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Rahul</td>
+                                                <td>9744574436</td>
+                                                <td>rahul.vmohan@gmail.com</td>
+                                                <td>Male</td>
+                                                <td>Active</td>
+                                                <td><a href=""><button type="button" class="btn">Edit</button></a></td>
+                                                <td><a href=""><button type="button" class="btn">Delete</button></a></td>
+                                            </tr>
+                                            
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                       
+                    </div>
     </div>
     <?php include 'footer.php' ?>
