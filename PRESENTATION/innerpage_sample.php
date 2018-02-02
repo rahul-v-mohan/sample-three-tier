@@ -3,6 +3,19 @@
             <!-- End Navbar -->
             <div class="content">
                 <div class="container-fluid">
+                                <?php if (!empty($_SESSION['MSG'])) { ?>
+                        <div class="container">
+
+                            <div class="alert alert-warning   alert-dismissable">
+                                <strong>INFO</strong> 
+                                <?php
+                                echo $_SESSION['MSG'] . '.';
+                                unset($_SESSION['MSG']);
+                                ?> 
+                                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                            </div>
+                        </div>
+                    <?php } ?>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card">
