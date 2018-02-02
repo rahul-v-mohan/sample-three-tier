@@ -10,7 +10,7 @@
                         <h4 class="card-title">Login</h4>
                     </div>
                     <div class="card-body">
-                        <form id="log_in_form" method="post" action="">
+                        <form id="log_in_form" method="post" action="PROCESS/login_process.php">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">

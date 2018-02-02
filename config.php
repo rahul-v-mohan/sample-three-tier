@@ -1,10 +1,10 @@
 <?php
 define('PROJECT', true);
 // Database Connection Variables
-define('DOMAIN', "localhost");
-define('USERNAME', "root");
-define('PASSWORD', "");
-define('DATABASE', "bvm");
+define('DOMAIN', "192.168.1.3");
+define('USERNAME', "admin");
+define('PASSWORD', "redhat");
+define('DATABASE', "parking_assist");
 ///////////////////////////////////////////////////////
 
 //  Base URL
@@ -19,3 +19,4 @@ define('GMAIL_PASSWORD', "");
  * Parameters:  mail_to|mail_subject|mail_content
  */
 ///////////////////////////////////////////////////////
+require_once("DB_BUSINESS_LAYER/business_layer.php");

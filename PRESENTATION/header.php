@@ -1,4 +1,4 @@
-<?php include_once '/../BUSINESS_LAYER/business_layer.php'; ?>
+<?php include_once '/../config.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 

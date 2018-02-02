@@ -3,7 +3,7 @@
 /*
  * Note:  This is a core file,no chanage is recommented
  */
-require_once("/../DATA_LAYER/database_connection.php");
+require_once("database_connection.php");
 
 class query_core extends dboperation {
 
@@ -37,14 +37,14 @@ class query_core extends dboperation {
         return $this->execute($qry);
     }
 
-    function select($table, $getfield, $where=array(), $operand="",$join=array()) {
+    function select($table, $getfield, $where=array(), $operand="AND",$join=array()) {
         // Arranging where condition
         $query_where="";
         if(!empty($where)){
         foreach ($where as $key=>$value){
             $query_where[] =" $key = '$value'";
         }
-        $query_where = " WHERE ".(implode($operand,$query_where));
+        $query_where = " WHERE ".(implode(" $operand ",$query_where));
         }
         ///////////////////////////////////////////
         // Arranging join
@@ -56,7 +56,7 @@ class query_core extends dboperation {
         }
         ///////////////////////////////////////////
         
-        $qry = "select $field from $table $query_join $query_where";
+        $qry = "select $getfield from $table $query_join $query_where";
 
         $res = $this->execute($qry);
         return $res;
