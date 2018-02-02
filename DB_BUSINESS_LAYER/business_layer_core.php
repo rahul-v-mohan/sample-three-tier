@@ -7,10 +7,14 @@ require_once("database_connection.php");
 
 class query_core extends dboperation {
 
-    function insert($table, $field, $value) {
-        $fields = implode(",", $field);
-        $values = implode("','", $value);
-        $qry = "INSERT INTO $table ($field) VALUES ('$values')";
+    function insert($table, $field_value) {
+        $fields = array_keys($field_value);
+        $values = array_values($field_value);
+        
+        $fields = implode(",",$fields);
+        $values = implode("','",$values);
+        
+        $qry = "INSERT INTO $table ($fields) VALUES ('$values')";
         $res = $this->execute($qry);
         return mysqli_insert_id($this->con);
     }

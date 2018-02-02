@@ -3,6 +3,44 @@ $project = 'Parking Assist';
 $page_title = 'Creation Account'
 ?>
 <?php include 'header.php'; ?>
+
+<?php
+$name ='';
+$email ='';
+$mobile ='';
+$gender_male_check ='';
+$gender_female_check ='';
+$status = '1';
+$status_check = '';
+$id = '0';
+$method ='insert';
+if(!empty($_GET['action']) && !empty($_GET['id']) ){
+    if($_GET['action'] == 'edit'){
+        
+        $method ='update';
+        $page_title = 'Update Account';
+        
+       $result =$query->select('user','*',['id'=>$_GET['id']]) ;
+       $row=  mysqli_fetch_array($result);
+        $id =$row['id'];
+        $name =$row['name'];
+        $email =$row['email'];
+        $mobile =$row['mobile'];
+        $gender_male_check =($row['gender'] == 'Male')?'checked':'';
+        $gender_female_check =($row['gender'] == 'Female')?'checked':'';
+        $status = $row['status'];
+        $status_check = ($row['status'] == '1')?'checked':'';
+       
+    }else if($_GET['action'] == 'delete'){
+       $response =$query->delete('user','id',$_GET['id']);
+       if(!empty($response)){
+            $_SESSION['MSG'] = 'Deleted Successfully';
+       }else{
+           $_SESSION['MSG'] = 'Not able to delete';
+       }
+    }
+}
+?>
 <!-- End Navbar -->
 <div class="content">
     <div class="container-fluid">
@@ -26,12 +64,15 @@ $page_title = 'Creation Account'
                         <h4 class="card-title"><?= $page_title ?></h4>
                     </div>
                     <div class="card-body">
-                        <form id="user_registration" method="post" action="">
+
+                        <form id="user_registration" method="post" action="PROCESS/user_reg_process.php">
+                            <input type="hidden" class="form-control"  name="id" value="<?php echo $id; ?>">
+                            <input type="hidden" class="form-control"  name="method" value="<?php echo $method; ?>">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Name <span class="mandatory">*</span></label>
-                                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter Your name" value="">
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="Enter Your name" value="<?php echo $name; ?>">
                                     </div>
                                 </div>
                             </div>
@@ -39,7 +80,7 @@ $page_title = 'Creation Account'
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Email <span class="mandatory">*</span></label>
-                                        <input type="text" class="form-control" id="email" name="email" placeholder="Enter Your Valid Email" value="">
+                                        <input type="text" class="form-control" id="email" name="email" placeholder="Enter Your Valid Email" value="<?php echo $email; ?>">
                                     </div>
                                 </div>
                             </div>
@@ -47,21 +88,32 @@ $page_title = 'Creation Account'
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Mobile <span class="mandatory">*</span></label>
-                                        <input type="text" class="form-control" id="mobile" name="mobile"  placeholder="Enter Your Mobile Number" value="">
+                                        <input type="text" class="form-control" id="mobile" name="mobile"  placeholder="Enter Your Mobile Number" value="<?php echo $mobile; ?>">
                                     </div>
                                 </div>
                                     </div>
                             <div class="row">
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Gender <span class="mandatory">*</span></label>
                                         <div class="options">
-                                            <label>Male</label><input type="radio"  id="gender-m" name="gender"  value="Male">
-                                            <label>Female</label><input type="radio"  id="gender" name="gender"  value="Female">
+                                            <label>Male</label><input type="radio"  id="gender-m" name="gender"  value="Male" <?php echo $gender_male_check; ?>>
+                                            <label>Female</label><input type="radio"  id="gender" name="gender"  value="Female" <?php echo $gender_female_check; ?>>
                                         </div>
                                     </div>
                                 </div>
-
+                                <?php if(!empty($_SESSION['privilage'])){ ?>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label>Login Status</label>
+                                        <div class="options">
+                                            <label>Set To Active</label><input type="checkbox"  id="status" name="status"   value="1" <?php echo $status_check; ?> >
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php }else{ ?>
+                                <input type="hidden"  id="status" name="status"   value="<?php echo $status; ?>"  >
+                                <?php } ?>
                             </div>
                             <button type="submit" class="btn btn-info btn-fill pull-right">Submit</button>
                             <div class="clearfix"></div>
@@ -90,16 +142,26 @@ $page_title = 'Creation Account'
                                             <th>Delete</th>
                                         </thead>
                                         <tbody>
+                                            <?php 
+                                            //get user details
+                                            $result = $query->select('user','*');
+                                            if(!empty($result)){
+                                            while ($row=  mysqli_fetch_assoc($result)){ 
+                                                ?>
                                             <tr>
-                                                <td>Rahul</td>
-                                                <td>9744574436</td>
-                                                <td>rahul.vmohan@gmail.com</td>
-                                                <td>Male</td>
-                                                <td>Active</td>
-                                                <td><a href=""><button type="button" class="btn">Edit</button></a></td>
-                                                <td><a href=""><button type="button" class="btn">Delete</button></a></td>
+                                                <td><?php echo $row['name']; ?></td>
+                                                <td><?php echo $row['mobile']; ?></td>
+                                                <td><?php echo $row['email']; ?></td>
+                                                <td><?php echo $row['gender']; ?></td>
+                                                <td><?php echo $row['status']; ?></td>
+                                                <td><a href="?action=edit&id=<?php echo $row['id'];?>"><button type="button" class="btn">Edit</button></a></td>
+                                                <td><a href="?action=delete&id=<?php echo $row['id'];?>"><button type="button" class="btn">Delete</button></a></td>
                                             </tr>
-                                            
+                                            <?php }}else{ ?>
+                                             <tr>
+                                                 <td colspan="6">No Records Found</td>
+                                            </tr>
+                                            <?php } ?>
                                         </tbody>
                                     </table>
                                 </div>

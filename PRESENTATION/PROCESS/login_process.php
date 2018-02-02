@@ -14,8 +14,10 @@ if (!empty($email) && !empty($password)) {
         $result_row = mysqli_fetch_array($result);
         $_SESSION['USER'] = $result_row;
         if ($_SESSION['USER']['role'] == 'admin') {
+            $_SESSION['privilage'] = '1';
             header("location:../admin_home.php");
         }elseif ($_SESSION['USER']['role'] == 'staff') {
+            $_SESSION['privilage'] = '1';
             header("location:../staff_home.php");
         }elseif ($_SESSION['USER']['role'] == 'user') {
             header("location:../user_home.php");
