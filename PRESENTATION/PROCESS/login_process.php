@@ -4,7 +4,7 @@ include 'process_common.php';
 
 $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
 $password = trim($_POST['password']);
-
+unset( $_SESSION['USER']);
 if (!empty($email) && !empty($password)) {
 
     $where = array('email' => $email, 'password' => $password);
@@ -24,8 +24,12 @@ if (!empty($email) && !empty($password)) {
             $_SESSION['MSG']='Something Went Wrong';
             header("location:../login.php");
         }
+    }else{
+             $_SESSION['MSG'] = 'Invalid Username or Password';
+             header("location:../login.php");
     }
 } else {
-    $_SESSION['msg'] = 'Invalid Username or Password';
+     $_SESSION['MSG'] = 'Fill Username and Password';
+    header("location:../login.php");
 }
 

@@ -4,6 +4,19 @@
 <div class="content">
     <div class="container-fluid">
         <div class="row">
+            <?php if (!empty($_SESSION['MSG'])) { ?>
+                <div class="container">
+
+                    <div class="alert alert-warning   alert-dismissable">
+                        <strong>INFO</strong> 
+                        <?php
+                        echo $_SESSION['MSG'] . '.';
+                        unset($_SESSION['MSG']);
+                        ?> 
+                        <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                    </div>
+                </div>
+            <?php } ?>
             <div class="col-md-6">
                 <div class="card">
                     <div class="card-header">
