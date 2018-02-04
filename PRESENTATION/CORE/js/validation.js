@@ -45,6 +45,38 @@ jQuery(document).ready(function ($) {
             }
          }
     });
+    $("#staff_registration").validate({
+        rules: {
+            email: {
+                required: true,
+                customemail: true,
+            },
+            name: {
+                required: true,
+                letterswithbasicpunc: true,
+            },
+            mobile: {
+                required: true,
+                digits: true,
+                minlength: 10,
+                maxlength: 10,
+            },
+            gender: {
+                required: true,
+            },
+        },
+                errorPlacement: function(error, element) 
+        {
+            if ( element.is(":radio") ) 
+            {
+                error.appendTo( element.parents('.options') );
+            }
+            else 
+            { // This is the default behavior 
+                error.insertAfter( element );
+            }
+         }
+    });
     //////////////////////////////////////////////
     /*
      * Change Password
@@ -74,10 +106,31 @@ jQuery(document).ready(function ($) {
             },
         },
     });
+    $("#contact_form").validate({
+        rules: {
+            email: {
+                required: true,
+                customemail: true,
+            },
+            name: {
+                required: true,
+                letterswithbasicpunc: true,
+            },
+            message: {
+                required: true,
+            },
+            mobile: {
+                required: true,
+                digits: true,
+                minlength: 10,
+                maxlength: 10,
+            },
+        },
+    });
     
 
 
-
+///////////////////////////////////////////////////////////////////////////////////////////
     /*
      * Paper Setting 
      */

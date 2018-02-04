@@ -36,8 +36,14 @@ class query_core extends dboperation {
         return $this->execute($qry);
     }
 
-    function delete($table, $field, $value) {
-        $qry = "DELETE FROM $table WHERE $field = '$value'";
+    function delete($table, $where) {
+         
+        foreach ($where as $key => $value) {
+            $query_where[] = " $key = '$value'";
+        }
+         $query_where = implode(" AND ", $query_where);
+         
+        $qry = "DELETE FROM $table WHERE $query_where ";
         return $this->execute($qry);
     }
 

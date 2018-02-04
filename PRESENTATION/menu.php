@@ -1,45 +1,44 @@
-              <ul class="nav">
-                    <li>
-                        <a class="nav-link" href="dashboard.html">
-                            <i class="nc-icon nc-chart-pie-35"></i>
-                            <p>Dashboard</p>
+<?php
+$role = (!empty($_SESSION['USER']['role']))?$_SESSION['USER']['role']:'';
+        if ($role == 'admin') {
+            $menu = [
+                'Profile'=>'profile.php',
+                'Staff Management'=>'staff_registration.php',
+                'User Management'=>'user_registration.php',
+                'Slot Management'=>'slot_management.php',
+                'Rate Management'=>'rate_management.php',
+                'Search Slot'=>'search_slot.php',
+                'Reservation Management'=>'rate_management.php',
+                ];
+        }elseif ($role ==  'staff') {
+            $menu = [
+                'Profile'=>'profile.php',
+                'User Management'=>'user_registration.php',
+                'Slot Management'=>'slot_management.php',
+                'Rate Management'=>'rate_management.php',
+                'Search Slot'=>'search_slot.php',
+                'Reservation Management'=>'rate_management.php',
+                ];
+        }elseif ($role ==  'user') {
+            $menu = [
+                'Profile'=>'profile.php',
+                'Search Slot'=>'search_slot.php',
+                'Reservation Management'=>'rate_management.php',
+                ];
+        } else {
+           $menu =[];
+        }
+
+?>
+
+<ul class="nav">
+    <?php    foreach($menu as $title =>$url){ ?>
+        <li>
+                        <a class="nav-link" href="<?php echo $url; ?> ">
+                            <!--<i class="nc-icon nc-chart-pie-35"></i>-->
+                            <p><?php echo $title; ?></p>
                         </a>
                     </li>
-                    <li class="nav-item ">
-                        <a class="nav-link" href="./user.html">
-                            <i class="nc-icon nc-circle-09"></i>
-                            <p>User Profile</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="nav-link" href="./table.html">
-                            <i class="nc-icon nc-notes"></i>
-                            <p>Table List</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="nav-link" href="./typography.html">
-                            <i class="nc-icon nc-paper-2"></i>
-                            <p>Typography</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="nav-link" href="./icons.html">
-                            <i class="nc-icon nc-atom"></i>
-                            <p>Icons</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="nav-link" href="./maps.html">
-                            <i class="nc-icon nc-pin-3"></i>
-                            <p>Maps</p>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="nav-link" href="./notifications.html">
-                            <i class="nc-icon nc-bell-55"></i>
-                            <p>Notifications</p>
-                        </a>
-                    </li>
+    <?php } ?>       
                 </ul>
 

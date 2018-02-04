@@ -7,7 +7,7 @@ $password = trim($_POST['password']);
 unset( $_SESSION['USER']);
 if (!empty($email) && !empty($password)) {
 
-    $where = array('email' => $email, 'password' => $password);
+    $where = array('email' => $email, 'password' => $password,'status' =>'1');
     $result = $query->select('user', '*', $where);
 
     if ($result->num_rows == '1') {
@@ -15,12 +15,12 @@ if (!empty($email) && !empty($password)) {
         $_SESSION['USER'] = $result_row;
         if ($_SESSION['USER']['role'] == 'admin') {
             $_SESSION['privilage'] = '1';
-            header("location:../admin_home.php");
+            header("location:../profile.php");
         }elseif ($_SESSION['USER']['role'] == 'staff') {
             $_SESSION['privilage'] = '1';
-            header("location:../staff_home.php");
+            header("location:../profile.php");
         }elseif ($_SESSION['USER']['role'] == 'user') {
-            header("location:../user_home.php");
+            header("location:../profile.php");
         } else {
             unset( $_SESSION['USER']);
             $_SESSION['MSG']='Something Went Wrong';

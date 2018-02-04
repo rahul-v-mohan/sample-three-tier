@@ -1,5 +1,5 @@
-<?php $project = 'Parking Assist'; ?>
-<?php include 'header.php'; ?>
+<?php include_once 'page_top.php'; ?>
+<?php include 'header_site.php'; ?>
 <!-- End Navbar -->
 <div class="content">
     <div class="container-fluid">

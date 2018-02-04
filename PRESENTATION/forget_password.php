@@ -1,5 +1,11 @@
-<?php $project = 'Parking Assist'; ?>
-<?php include 'header.php'; ?>
+<?php include_once 'page_top.php'; ?>
+<?php
+$page_title = 'Forget Password';
+$action_page = 'PROCESS/forget_process.php';
+?>
+<?php
+  include 'header_site.php';  
+?>
 <!-- End Navbar -->
 <div class="content">
     <div class="container-fluid">
@@ -20,10 +26,10 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4 class="card-title">Forget Password</h4>
+                        <h4 class="card-title"><?php echo $page_title; ?></h4>
                     </div>
                     <div class="card-body">
-                        <form id="forgetpassword_form" method="post" action="">
+                        <form id="forgetpassword_form" method="post" action="<?php echo $action_page; ?>">
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">

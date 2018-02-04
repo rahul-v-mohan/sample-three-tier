@@ -1,4 +1,8 @@
-<?php // include_once '/../CORE/header_inner.php'; ?>
+<?php
+if(empty($_SESSION['USER'])){
+    header("location:login.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +11,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="assets/img/favicon.ico">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <title><?= $project ?></title>
+    <title>Parking Assist</title>
     <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
@@ -26,7 +30,7 @@
             <div class="sidebar-wrapper">
                 <div class="logo">
                     <a href="index.php" class="simple-text">
-                        <?= $project ?>
+                       Parking Assist
                     </a>
                 </div>
   <?php include 'menu.php'; ?>
@@ -36,7 +40,7 @@
             <!-- Navbar -->
             <nav class="navbar navbar-expand-lg " color-on-scroll="500">
                 <div class=" container-fluid  ">
-                    <a class="navbar-brand" href="#pablo"> User </a>
+                    <a class="navbar-brand" href="#"> <?php echo $_SESSION['USER']['name']; ?></a>
                     <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar burger-lines"></span>
                         <span class="navbar-toggler-bar burger-lines"></span>
@@ -45,11 +49,11 @@
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
                         <ul class="navbar-nav ml-auto">
                             <li class="nav-item">
-                                <a class="nav-link" href="#pablo">
-                                    <span class="no-icon">Account</span>
+                                <a class="nav-link" href="change_password.php">
+                                    <span class="no-icon">Change Password</span>
                                 </a>
                             </li>
-                            <li class="nav-item dropdown">
+<!--                            <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="http://example.com" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <span class="no-icon">Dropdown</span>
                                 </a>
@@ -61,9 +65,9 @@
                                     <div class="divider"></div>
                                     <a class="dropdown-item" href="#">Separated link</a>
                                 </div>
-                            </li>
+                            </li>-->
                             <li class="nav-item">
-                                <a class="nav-link" href="#pablo">
+                                <a class="nav-link" href="logout.php">
                                     <span class="no-icon">Log out</span>
                                 </a>
                             </li>

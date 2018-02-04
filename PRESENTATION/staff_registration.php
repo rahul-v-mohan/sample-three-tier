@@ -1,15 +1,11 @@
 <?php include_once 'page_top.php'; ?>
 <?php
-$page_title = 'User Creation';
-$table_name = 'User Details';
-$action_page = 'PROCESS/user_reg_process.php';
+$page_title = 'Staff Creation';
+$table_name = 'Staff Details';
+$action_page = 'PROCESS/staff_reg_process.php';
 ?>
-<?php 
-if(!empty($_SESSION['USER'])){
-include 'header_user.php'; 
-}else{
- include 'header_site.php';    
-}
+<?php
+  include 'header_user.php';  
 ?>
 
 <?php
@@ -73,7 +69,7 @@ if(!empty($_GET['action']) && !empty($_GET['id']) ){
                     </div>
                     <div class="card-body">
 
-                        <form id="user_registration" method="post" action="<?php echo $action_page; ?>">
+                        <form id="staff_registration" method="post" action="<?php echo $action_page; ?>">
                             <input type="hidden" class="form-control"  name="id" value="<?php echo $id; ?>">
                             <input type="hidden" class="form-control"  name="method" value="<?php echo $method; ?>">
                             <div class="row">
@@ -153,7 +149,7 @@ if(!empty($_GET['action']) && !empty($_GET['id']) ){
                                         <tbody>
                                             <?php 
                                             //get user details
-                                            $result = $query->select('user','*',['role' =>'user']);
+                                            $result = $query->select('user','*',['role' =>'staff']);
                                             if(!empty($result)){
                                             while ($row=  mysqli_fetch_assoc($result)){ 
                                                 ?>
@@ -184,6 +180,6 @@ if(!empty($_GET['action']) && !empty($_GET['id']) ){
                         </div>
                        
                     </div>
-                <?php } ?>
+        <?php } ?>
     </div>
     <?php include 'footer.php' ?>

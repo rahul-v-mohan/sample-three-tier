@@ -6,7 +6,7 @@
                             <script>
                                 document.write(new Date().getFullYear())
                             </script>
-                            <a href="http://www.rahulvmohan.com"><?= $project ?></a>
+                            <a href="http://www.rahulvmohan.com">Parking Assist</a>
                         </p>
                     </nav>
                 </div>

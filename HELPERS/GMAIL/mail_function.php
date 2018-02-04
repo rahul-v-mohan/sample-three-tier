@@ -17,7 +17,6 @@ $smtp = array(
 'secure' => 'tls' //SSL or TLS
 
 );
-print_r($smtp);
 global  $mailer;
 
 
