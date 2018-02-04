@@ -17,7 +17,7 @@
                     </div>
                 </div>
             <?php } ?>
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
                         <h4 class="card-title">Login</h4>
@@ -47,43 +47,6 @@
                         </form>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card">
-                    <div class="card-header">
-                        <h4 class="card-title">Search</h4>
-                    </div>
-                    <div class="card-body">
-                        <form>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>Date</label>
-                                        <input type="text" class="form-control" placeholder="YYYY-MM-DD" >
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Start Time</label>
-                                        <input type="text" class="form-control" placeholder="HH:MM:SS" >
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>End Time</label>
-                                        <input type="text" class="form-control" placeholder="HH:MM:SS" >
-                                    </div>
-                                </div>
-                            </div>
-                            <button type="submit" class="btn btn-info btn-fill pull-right">Search</button>
-                            <div class="clearfix"></div>
-                        </form>
-
-                    </div>
-                </div>
-
             </div>
         </div>
     </div>
