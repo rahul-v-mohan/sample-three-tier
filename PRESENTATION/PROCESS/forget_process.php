@@ -35,13 +35,11 @@ rahul;
         ////////////////////////////////////////////
         if ($mail_result == 1) {
             $_SESSION['MSG'] = 'Please Check Your Mail';
-            header("location:../forget_password.php");
         } else {
             $_SESSION['MSG'] = 'Something Went Wrong!!! Please try again';
-            header("location:../forget_password.php");
         }
     }
 } else {
     $_SESSION['MSG'] = 'Enter Valid Email';
-    header("location:../forget_password.php");
 }
+    header("location:../forget_password.php");

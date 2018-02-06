@@ -22,7 +22,7 @@ if(!empty($_GET['action']) && !empty($_GET['id']) ){
     if($_GET['action'] == 'edit'){
         
         $method ='update';
-        $page_title = 'Update Account';
+        $page_title = $page_title.' - Update';
         
        $result =$query->select('user','*',['id'=>$_GET['id']]) ;
        $row=  mysqli_fetch_array($result);
@@ -138,6 +138,7 @@ if(!empty($_GET['action']) && !empty($_GET['id']) ){
                                 <div class="card-body table-full-width table-responsive">
                                     <table class="table table-hover table-striped">
                                         <thead>
+                                            <th>Sl No.</th>
                                             <th>Name</th>
                                             <th>Mobile</th>
                                             <th>Email</th>
@@ -149,11 +150,13 @@ if(!empty($_GET['action']) && !empty($_GET['id']) ){
                                         <tbody>
                                             <?php 
                                             //get user details
+                                            $slno = 1;
                                             $result = $query->select('user','*',['role' =>'staff']);
                                             if(!empty($result)){
                                             while ($row=  mysqli_fetch_assoc($result)){ 
                                                 ?>
                                             <tr>
+                                                <td><?php echo $slno++; ?></td>
                                                 <td><?php echo $row['name']; ?></td>
                                                 <td><?php echo $row['mobile']; ?></td>
                                                 <td><?php echo $row['email']; ?></td>

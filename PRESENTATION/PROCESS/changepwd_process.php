@@ -21,16 +21,14 @@ if (!empty($current_password) && !empty($new_password) && !empty($confirm_passwo
         }
         if (!empty($update)) {
             $_SESSION['MSG'] = 'Your Password Has Been Updated';
-            header("location:../change_password.php");
+            
         } else {
             $_SESSION['MSG'] = 'Something Went Wrong!!! Please try again';
-            header("location:../change_password.php");
         }
     } else {
         $_SESSION['MSG'] = 'New Password and Confirm Password Must be same';
-        header("location:../change_password.php");
     }
 } else {
     $_SESSION['MSG'] = 'All Fields are mandatory';
-    header("location:../change_password.php");
 }
+header("location:../change_password.php");

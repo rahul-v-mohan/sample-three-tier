@@ -23,9 +23,7 @@ rahul;
         ////////////////////////////////////////////
         if ($mail_result == 1) {
             $_SESSION['MSG'] = 'Successfully send the mail';
-            header("location:../contact.php");
         } else {
             $_SESSION['MSG'] = 'Something Went Wrong!!! Please try again';
-            header("location:../contact.php");
         }
-    
+    header("location:../contact.php");

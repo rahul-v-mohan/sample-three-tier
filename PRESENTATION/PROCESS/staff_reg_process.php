@@ -41,14 +41,11 @@ rahul;
 
         if ($mail_result == 1) {
             $_SESSION['MSG'] = 'Successfully inserted check mail for login details';
-            header("location:../profile.php");
         } else {
             $_SESSION['MSG'] = 'Account has been created';
-            header("location:../profile.php");
         }
     } else {
         $_SESSION['MSG'] = 'Not Inserted!!! Please try again';
-        header("location:../staff_registration.php");
     }
 }
 
@@ -63,7 +60,6 @@ if ($method == 'update') {
     } else {
         $_SESSION['MSG'] = 'Somethng went wrong!!! Please try again';
     }
-    header("location:../staff_registration.php");
 }
 
 //Delete
@@ -75,5 +71,5 @@ if ($method == 'delete') {
     } else {
         $_SESSION['MSG'] = 'Somethng went wrong!!! Please try again';
     }
-    header("location:../staff_registration.php");
 }
+header("location:../staff_registration.php");

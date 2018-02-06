@@ -21,7 +21,7 @@ if(empty($_SESSION['USER'])){
     <link href="assets/css/light-bootstrap-dashboard.css?v=2.0.1" rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="assets/css/demo.css" rel="stylesheet" />
-<?php include_once '/CORE/script_header.php'; ?>
+<?php include_once 'CORE/script_header.php'; ?>
 </head>
 
 <body>

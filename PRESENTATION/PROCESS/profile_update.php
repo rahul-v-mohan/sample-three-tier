@@ -1,7 +1,6 @@
 <?php
 
 include 'process_common.php';
-include '/../../HELPERS/GMAIL/mail_function.php';
 $table_name = 'user';
 $where['id'] = trim($_POST['id']);
 $field_values['name'] = trim($_POST['name']);
@@ -16,5 +15,5 @@ if ($method == 'update') {
     } else {
         $_SESSION['MSG'] = 'Somethng went wrong!!! Please try again';
     }
-    header("location:../user_registration.php");
 }
+    header("location:../user_registration.php");
