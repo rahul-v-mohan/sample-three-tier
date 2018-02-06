@@ -39,13 +39,6 @@ if(!empty($_GET['action']) && !empty($_GET['id']) ){
         $status = $row['status'];
         $status_check = ($row['status'] == '1')?'checked':'';
        
-    }else if($_GET['action'] == 'delete'){
-       $response =$query->delete('user','id',$_GET['id']);
-       if(!empty($response)){
-            $_SESSION['MSG'] = 'Deleted Successfully';
-       }else{
-           $_SESSION['MSG'] = 'Not able to delete';
-       }
     }
 }
 ?>
